@@ -1,7 +1,7 @@
 # Nuovo progetto in Laravel 10 + Bootstrap 5.x + SASS
-<img src="https://www.geekandjob.com/uploads/wiki/106eb730f7c2e52c9e0eb4b2d7a649ce.svg" width="220"/>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/800px-Bootstrap_logo.svg.png" width="220">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" width="220">
+<img src="https://www.geekandjob.com/uploads/wiki/106eb730f7c2e52c9e0eb4b2d7a649ce.svg" width="200"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/800px-Bootstrap_logo.svg.png" width="200">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png" width="200">
 
 ---
 
