@@ -1,66 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Nuovo progetto in Laravel 10 + Bootstrap 5.x + SASS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- Prima di tutto eseguiamo il solito comando di installazione di npm
 
-## About Laravel
+    - Eseguiamo npm install
+    - Eseguiamo il comando per aggiungere sass npm i --save-dev sass o npm install -D sass
+    - Modifichiamo la cartella resources/css in resources/scss
+    - Modifichiamo il file resources/css/app.css in resources/scss/app.scss
+    - Modifichiamo il file vite.config.js aggiungendo a plugins il path giusto da 'resources/css/app.css' a 'resources/scss/app.scss' ,
+    - Aggiungiamo un alias al file vite.config.js per facilitare l'accesso a resources:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```
+    resolve: {
+            alias: {
+                '~resources' : "/resources/"
+            }
+    } 
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Aggiungiamo import "~resources/scss/app.scss"; al file resources/js/app.js
+- Aggiungiamo @vite("resources/js/app.js") ad ogni layout della nostra      applicazione
+- Aggiungiamo a resources/js/app.js una direttiva per la corretta gestione delle immagini
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```
+import.meta.glob([
+    '../img/**'
+]);
+```
 
-## Learning Laravel
+- Aggiungiamo la riga package-lock.json al file .gitignore
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Aggiungiamo Bootstrap 5 al nostro progetto
+- Installiamo attraverso npm i due pacchetti necessari a Bootstrap npm i bootstrap @popperjs/core
+- Aggiungo in cima al file vite.config.js questa riga const path = require("path");
+- Aggiungo agli alias sempre in vite.config.js
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```
+alias: {
+            '~resources' : "/resources/",
+            '~bootstrap' : path.resolve(__dirname, "node_modules/bootstrap")
+        }
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Aggiungiamo @use "~bootstrap/scss/bootstrap" as *; al nostro file app.scss
+- Aggiungiamo import * as bootstrap from "bootstrap"; al nostro file app.js
 
-## Laravel Sponsors
+# Come usare una template repository
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Apri la repository su github e in alto a destra clicca su "Use this template" e poi crea una nuova repository
+- Le diamo un nome come richiesto
+- La cloniamo direttamente dalla nostra IDE (vscode)
+- Apriamo la repository
+- Copio e incollo il mio file .env.example e lo rinomino come .env
+- Eseguiamo npm install
+- Eseguiamo composer install
+- Eseguiamo il comando di generazione della chiave univoca del nostro progetto con php artisan key:generate
+- Eseguiamo i due comandi di esecuzione costante in due terminali separati (anche paralleli, volendo) npm run dev e php artisan serve
