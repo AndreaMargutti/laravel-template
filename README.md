@@ -1,4 +1,4 @@
-# Nuovo progetto in Laravel 10 + Bootstrap 5.x + SASS
+# Nuovo progetto in Laravel 10 + Bootstrap Last v. + SASS
 <div style="display:flex; justify-content:space-between">
 <img src="https://www.geekandjob.com/uploads/wiki/106eb730f7c2e52c9e0eb4b2d7a649ce.svg" width="200">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/800px-Bootstrap_logo.svg.png" width="200">
@@ -6,7 +6,8 @@
 </div>
 
 ---
-
+- Come prima cosa bisogna, ovviamente creare un nuova cartella sul proprio desktop, contenente tutto il progetto in laravel:
+    - Eseguire questo comando: ```composer create-project laravel/laravel:^10.0 example-app```
 - Prima di tutto eseguiamo il solito comando di installazione di npm
 
     - Eseguiamo npm install
